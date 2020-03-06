@@ -1,0 +1,102 @@
+
+
+
+body{
+	background: rgb(255,255,255);
+	margin: 0%;
+}
+
+h1{
+	font-weight: normal;
+	z-index: -1;
+	font-size: 100pt;
+}
+
+.compositionContainer:hover{
+	/*background-color: rgb(230,230,230);*/
+	font-style: italic;
+}
+
+.compositionContainer:hover .compositionFullscreen{
+	display: block;
+}
+
+.compositionContainer:hover .compositionTitle{
+	display: block;
+}
+.compositionContainer:hover .compositionImg{
+	opacity: 30%;
+}
+
+.compositionFullscreen:hover{
+	width: 7%;
+}
+
+.title{
+
+  width: 60%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+ 
+
+  }
+
+.compositionContainer{
+	position: relative;
+	left: 50%;
+	transform: translate(-50%,0);
+	margin-top: 100vh;
+	background-color: white;
+	width:27vw;
+	height: 48vw;
+	border: 0.25px solid black;
+}
+
+.compositionTitle{
+	display: none;
+	position: absolute;
+	left: 50%;
+	top:45%;
+	transform: translate(-50%,0);
+}
+
+.compositionImg{
+	width:100%;
+	height: auto;
+	z-index: -2;
+}
+
+.compositionFullscreen{
+
+	width: 6%;
+	top:4%;
+	height: auto;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	left: 92%;
+	z-index: 1;
+	display: none;
+
+
+
+}
+
+
+
+
+
+@media screen and (min-width: 0px) and (max-width: 900px) {
+
+	.title{
+		width: 90%;
+	}
+
+	.compositionContainer{
+	width:54vw;
+	height: 96vw;
+}
+
+}
