@@ -127,7 +127,7 @@ for (i=0;i<nums.length;i++) {
 
     if(speechRec.resultValue==true) {
 
-      textSize(spectrum[0]^2);
+      textSize(spectrum[0]/2);
       fill('white'); 
       // blendMode(DIFFERENCE);
       textAlign(CENTER, CENTER);
