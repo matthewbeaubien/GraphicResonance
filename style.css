@@ -12,6 +12,24 @@ h1{
 	font-size: 100pt;
 }
 
+#p5_loading{
+	position: relative;
+	text-align: center;
+	z-index: 2;
+	top: 45vh;
+}
+
+#compositionContainer{
+	position: absolute;
+	width: 27vw;
+	height: 48vw;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	border: 1px solid black;
+
+}
+
 .compositionContainer:hover{
 	/*background-color: rgb(230,230,230);*/
 	font-style: italic;
