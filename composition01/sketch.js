@@ -72,11 +72,12 @@ for (i=0;i<nums.length;i++) {
   }
 }
 
+}
 // blendMode(MULTIPLY);
 
 //   rect(0, 0, width, height);
 
-// }
+
 
 // 	let spectrum = fft.analyze();
 //   	mic.start();
