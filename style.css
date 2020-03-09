@@ -19,16 +19,7 @@ h1{
 	top: 45vh;
 }
 
-#compositionContainer{
-	position: absolute;
-	width: 27vw;
-	height: 48vw;
-	left:50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	border: 1px solid black;
 
-}
 
 .compositionContainer:hover{
 	/*background-color: rgb(230,230,230);*/
@@ -48,6 +39,16 @@ h1{
 
 .compositionFullscreen:hover{
 	width: 7%;
+}
+
+#compositionContainer{
+	position: absolute;
+	width: 27vw;
+	height: 48vw;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	border: 1px solid black;
 }
 
 .title{
@@ -106,7 +107,7 @@ h1{
 
 
 
-@media screen and (min-width: 0px) and (max-width: 900px) {
+@media screen and (min-width: 0px) and (max-width: 100px) {
 
 	.title{
 		width: 90%;
@@ -115,6 +116,11 @@ h1{
 	.compositionContainer{
 	width:54vw;
 	height: 96vw;
+}
+
+#compositionContainer{
+	width: 100vw;
+	height:100vh; 
 }
 
 }

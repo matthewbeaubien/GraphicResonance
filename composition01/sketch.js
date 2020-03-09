@@ -57,9 +57,9 @@ function draw() {
     mic.start();
     var nums = [256, 246.5,238,229.5,221,212.5,204,195.5,187,178.5,170,161.5,153,144.5,136,127.5,119,110.5,102,93.5,85,76.5,68,59.5,51,42.5,34,25.5,17,8.5, 0];
                              
-// background('white');
+  // fill(spectrum[0], spectrum[8], spectrum[15]);
 
-
+// blendMode(NORMAL);
 
 for (i=0;i<nums.length;i++) {
   if ((spectrum[0]<nums[i]) && (spectrum[0]>nums[i+1])) {
@@ -72,8 +72,11 @@ for (i=0;i<nums.length;i++) {
   }
 }
 
+// blendMode(MULTIPLY);
 
-}
+//   rect(0, 0, width, height);
+
+// }
 
 // 	let spectrum = fft.analyze();
 //   	mic.start();
@@ -132,8 +135,8 @@ for (i=0;i<nums.length;i++) {
 
 
       textSize(spectrum[0]/2);
-      fill('white'); 
-      // blendMode(DIFFERENCE);
+      // fill(spectrum[15], spectrum[8], spectrum[0]); 
+      // blendMode(ADD);
       textAlign(LEFT, CENTER);
       text(speechRec.resultString, 0, 0, windowWidth*.27, windowWidth*.27);
       console.log(speechRec.resultConfidence);
