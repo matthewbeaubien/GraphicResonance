@@ -81,12 +81,12 @@ if (windowWidth>windowHeight){
     }else{
       for (i=0;i<nums.length;i++) {
         if ((spectrum[2]<nums[i]) && (spectrum[2]>nums[i+1])) {
-            image(imgs1[i], 0, 0, windowWidth, windowWidth*1.777777777777778);
+            image(imgs1[i], 0, 0, windowHeight*0.5625, windowHeight);
         }
       }
       for (i=0;i<nums.length;i++) {
         if ((spectrum[4]<nums[i]) && (spectrum[4]>nums[i+1])) {
-            image(imgs2[i], 0, 0, windowWidth, windowWidth*1.777777777777778);
+            image(imgs2[i], 0, 0, windowHeight*0.5625, windowHeight);
         }
       }
 
@@ -108,7 +108,8 @@ function showResult(){
       textSize(spectrum[0]/2);
       fill('white');
       textAlign(LEFT, CENTER);
-      text(speechRec.resultString, 0, 0, windowWidth, windowHeight);
+
+      text(speechRec.resultString, 10, 10, windowWidth-20, windowHeight-20);
       console.log(speechRec.resultConfidence);
 
     }
