@@ -109,7 +109,7 @@ function showResult(){
       fill('white');
       textAlign(LEFT, CENTER);
 
-      text(speechRec.resultString, 10, 10, windowWidth-20, windowHeight-20);
+      text(speechRec.resultString, 10, 10, windowHeight, windowWidth);
       console.log(speechRec.resultConfidence);
 
     }
