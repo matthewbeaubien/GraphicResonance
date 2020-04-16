@@ -227,6 +227,7 @@ p{
 }
 
 #textContainer:hover {
+	z-index: 2;
 }
 
 .title{
@@ -255,14 +256,12 @@ p{
 		width: 45vh;
 		height: 80vh; 
 	}	
+
+
 	#compositionHover{
 		width: 45vh;
 		height: 80vh; 
 	}	
-
-	#compositionHover:hover{
-	opacity:0;
-	}
 
 	#compositionHover:active{
 	opacity:0.75;

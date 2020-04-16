@@ -5,7 +5,12 @@ var canvas;
 
 function setup() {
 
-  canvas=createCanvas(windowWidth, windowHeight);
+  if (windowWidth>windowHeight){
+  var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
+  } else {
+  var canvas = createCanvas(windowHeight*.45, windowHeight*.8);
+  }
+
   canvas.parent('compositionContainer');
 
 
@@ -61,11 +66,16 @@ function draw() {
 }
 
 
+
 function mousePressed() {
   clear();
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowWidth);
+ if (windowWidth>windowHeight){
+  resizeCanvas(windowWidth*.27, windowWidth*.48);
+  } else {
+    resizeCanvas(windowHeight*.45, windowHeight*.8);
+  }
 
 }
