@@ -1,8 +1,28 @@
 
 ::-webkit-scrollbar {
 display: none;
+
 }
 
+@keyframes slideRight{
+	from {left:150vw;}
+	to {left:50vw;}
+}
+
+@keyframes spin{
+	from{transform: rotate(0deg) scale(0.3);}
+	to{transform: rotate(-360deg) scale(0.3);}
+}
+
+a{
+	font-family: "Times New Roman", Times, serif;
+	text-decoration: none;
+	color:black;
+}
+
+a:hover{
+	font-style: italic;
+}
 
 body{
 	background: rgb(255,255,255);
@@ -12,40 +32,96 @@ body{
 h1{
 	font-weight: normal;
 	z-index: -1;
-	font-size: 100pt;
+	font-size: 5em;
+	margin-left: 20px;
+	margin-bottom: 0;
 }
+
+h2{
+	margin: none;
+	margin-left: 20px;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 1.5em;
+	line-height: 1em;
+  	/*border-bottom: 2px solid black;*/
+  	display: inline-block;
+  	line-height: 0.85;
+  	border-width: .25pt;
+
+}
+
+h3{
+
+	margin-left: 20px;
+	margin-top: 40vh;
+	font-weight: normal;
+
+	font-size: 1em;
+	line-height: 0em;
+}
+h4{
+	font-family: aktiv-grotesk, sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	
+	text-transform: uppercase;
+	font-size: 0.6em;
+	margin-left: 20px;
+	margin-top: 10pt;
+	margin-bottom: 5px;
+	line-height: .6em;
+}
+
+p{
+	margin-top: 0px;
+	margin-bottom: 5pt;
+	margin-left: 20px;
+	margin-right: 40px;
+	font-family: aktiv-grotesk, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+
+}
+
 
 #p5_loading{
 	position: relative;
 	text-align: center;
 	z-index: 2;
-	top: 40vh;
+	top: 35vh;
 	transform: scale(0.45);
+}
 
+.rightArrow{
+	position: fixed;
+	top: 40vh;
+	right: 25px;
+	font-size: 4em;
+	transition: font-size .3s;
+	z-index: 2;
+}
 
+.rightArrow:hover{
+	font-size: 4.5em;
+}
+
+.leftArrow{
+	position: fixed;
+	top: 40vh;
+	left: 25px;
+	font-size: 4em;
+	transition: font-size .3s;
+	z-index: 2;
+
+}
+
+.leftArrow:hover{
+	font-size: 4.5em;
 }
 
 
 
-.compositionContainer:hover{
-	/*background-color: rgb(230,230,230);*/
-	font-style: italic;
-}
-
-.compositionContainer:hover .compositionFullscreen{
-	display: block;
-}
-
-.compositionContainer:hover .compositionTitle{
-	display: block;
-}
-.compositionContainer:hover .compositionImg{
-	opacity: 30%;
-}
-
-.compositionFullscreen:hover{
-	width: 7%;
-}
 
 #compositionContainer{
 	position: absolute;
@@ -54,77 +130,100 @@ h1{
 	left:50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
-	border: 1px solid black;
+	border: 1px solid darkred;
+	background-color: white;
+/*	
+	FOR WHEN I FIGURE OUT ANIMATION
+	animation-name: slideRight;
+  	animation-duration: 1s;*/
+}
+
+
+#compositionHover{
+	position: absolute;
+	width: 27vw;
+	height: 48vw;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	opacity: 0;
+	background-color: white;
+	z-index: 2;
+	transition: opacity 0.3s;
+	border: 1px solid darkred;
+	overflow: scroll;
+}
+
+#compositionHover:hover{
+	opacity:0.75;
+	
+}
+
+#reload{
+	position:fixed;
+	top:-15px;
+	right: -10px;
+	transform: scale(0.3);
+	margin: none;
+}
+
+#reload:hover{
+	animation-name: spin;
+	animation-duration: 0.4s;
+	animation-timing-function: cubic-bezier(0,0,0.3,1);
+}
+#reload:active {
+	transform: scale(0.25);
+}
+
+
+
+#textContainer{
+	overflow: scroll;
+	position: absolute;
+	width: 27vw;
+	height: 48vw;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	border: 1px solid darkred;
+	background-color: white;
+	transition: z-index .3s;
+}
+
+#textContainer:hover {
+	z-index: 2;
 }
 
 .title{
 	position: fixed;
-	font-size: 10vw;
+	font-size: 14vw;
 	font-family: "Times New Roman", Times, serif;
-	text-align: center;
-	top: 70vh;
-	height: 100vh;
-	width: 100vw;
+	text-align: left;
+	bottom:10vh;
+	left: 8vw;
 	letter-spacing: -0.3vw;
-
+	line-height: 80%;
+	z-index: 2;
   }
-
-.compositionContainer{
-	position: relative;
-	left: 50%;
-	transform: translate(-50%,0);
-	margin-top: 100vh;
-	background-color: white;
-	width:27vw;
-	height: 48vw;
-	border: 0.25px solid black;
-}
-
-.compositionTitle{
-	display: none;
-	position: absolute;
-	left: 50%;
-	top:45%;
-	transform: translate(-50%,0);
-}
-
-.compositionImg{
-	width:100%;
-	height: auto;
-	z-index: -2;
-}
-
-.compositionFullscreen{
-
-	width: 6%;
-	top:4%;
-	height: auto;
-	position: absolute;
-	transform: translate(-50%,-50%);
-	left: 92%;
-	z-index: 1;
-	display: none;
-
-
-
-}
-
 
 
 
 
 @media screen and (min-width: 0px) and (max-width: 900px) {
 
+	#compositionContainer{
+		width: 56.25vh;
+		height:100vh; 
+	}
 
-
-	.compositionContainer{
-	width:54vw;
-	height: 96vw;
-}
-
-#compositionContainer{
-	width: 56.25vh;
-	height:100vh; 
-}
+	#textContainer{
+		width: 56.25vh;
+		height:100vh; 
+	}	
+	#compositionHover{
+		width: 56.25vh;
+		height:100vh; 
+	}	
 
 }

@@ -7,8 +7,7 @@ var h1;
 // }
 
 function setup() {
-  canvas = createCanvas(599, 500);
-  canvas.parent('canvasContainer');
+  canvas = createCanvas(windowWidth, windowHeight);
   
   mic = new p5.AudioIn();
   fft = new p5.FFT(.6, 16);
@@ -17,7 +16,7 @@ function setup() {
   pixelDensity(2);
   frameRate(24);
 
-  background(0,0,0);
+
 
 }
 
@@ -25,5 +24,10 @@ function setup() {
 function draw() {
 
 console.log(foo);
+
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 
 }
