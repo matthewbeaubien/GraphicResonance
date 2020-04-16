@@ -4,6 +4,18 @@ display: none;
 
 }
 
+.p5Canvas{
+	width: 100vw;
+	height: 100vh;
+}
+
+#defaultCanvas0{
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	z-index: 1;
+}
+
 @keyframes slideRight{
 	from {left:150vw;}
 	to {left:50vw;}
@@ -56,10 +68,13 @@ h3{
 	margin-left: 20px;
 	margin-top: 40vh;
 	font-weight: normal;
-
 	font-size: 1em;
-	line-height: 0em;
+	line-height: 1em;
+	margin-bottom: 5px;
 }
+
+
+
 h4{
 	font-family: aktiv-grotesk, sans-serif;
 	font-weight: 700;
@@ -84,6 +99,19 @@ p{
 
 }
 
+{
+
+}
+
+
+#main{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	left: 0px;
+	top: 0px;
+
+}
 
 #p5_loading{
 	position: relative;
@@ -103,6 +131,7 @@ p{
 	font-family: aktiv-grotesk-thin, sans-serif;
 	font-weight: 200;
 	font-style: normal;
+	z-index: 10;
 }
 
 .rightArrow:hover{
@@ -118,6 +147,7 @@ p{
 	z-index: 2;font-family: aktiv-grotesk-thin, sans-serif;
 	font-weight: 200;
 	font-style: normal;
+	z-index: 10;
 
 }
 
@@ -197,7 +227,6 @@ p{
 }
 
 #textContainer:hover {
-	z-index: 2;
 }
 
 .title{
@@ -218,17 +247,42 @@ p{
 @media screen and (min-width: 0px) and (max-width: 900px) {
 
 	#compositionContainer{
-		width: 56.25vh;
-		height:100vh; 
+		width: 45vh;
+		height:80vh; 
 	}
 
 	#textContainer{
-		width: 56.25vh;
-		height:100vh; 
+		width: 45vh;
+		height: 80vh; 
 	}	
 	#compositionHover{
-		width: 56.25vh;
-		height:100vh; 
+		width: 45vh;
+		height: 80vh; 
 	}	
+
+	#compositionHover:hover{
+	opacity:0;
+	}
+
+	#compositionHover:active{
+	opacity:0.75;
+	}
+
+	.title{
+		bottom: 10vh;
+	}
+
+	.leftArrow{
+		text-shadow:  0 0 2px white;
+		opacity: 0.25;
+		left: 10px;
+	}
+
+	.rightArrow{
+		text-shadow:  0 0 2px white;
+		opacity: 0.25;
+		right: 10px;
+
+	}
 
 }

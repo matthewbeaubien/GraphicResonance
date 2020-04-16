@@ -1,29 +1,30 @@
 let mic, fft; 
-var canvas;
-var h1;
 
-// function windowResized(){
-// 	resizeCanvas(windowWidth,windowHeight);
-// }
+var canvas;
+
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight);
+  canvas.parent('main');
   
   mic = new p5.AudioIn();
-  fft = new p5.FFT(.6, 16);
-  fft.setInput(mic);                                
-  
-  pixelDensity(2);
-  frameRate(24);
-
-
+  fft = new p5.FFT(.6, 64);
+  fft.setInput(mic);           
 
 }
 
 
 function draw() {
 
+var spectrum = fft.analyze();
+console.log(spectrum);
+stroke(255);
 
+for (var i = 0; i < spectrum.length; i++){
+	var amp = spectrum[i];
+	var y = map(amp, 0, 255	, height, 0);
+	line(i, height, i, y);
+}
 
 }
 

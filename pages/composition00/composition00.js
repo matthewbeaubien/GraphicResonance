@@ -1,0 +1,71 @@
+          
+let mic, fft;   
+
+var canvas;
+
+function setup() {
+
+  canvas=createCanvas(windowWidth, windowHeight);
+  canvas.parent('compositionContainer');
+
+
+  mic = new p5.AudioIn();
+  fft = new p5.FFT(.6, 16);
+  fft.setInput(mic);                                
+ 
+  frameRate(60);
+
+  stroke('white');
+  strokeWeight(1);
+      fill('black');
+    if(windowWidth<windowHeight){
+      rect( -1, -1, windowHeight*.45 + 1, windowHeight*.8 + 1);
+      
+    } else {
+      rect(-1, -1, windowWidth*0.27 + 1, windowWidth*0.48 + 1);
+    }
+
+
+}
+
+
+
+function draw() {
+
+    let spectrum = fft.analyze();
+    mic.start();
+
+
+
+
+
+    noFill();
+    
+    ellipse(75, 100, spectrum[0]/2, spectrum[0]/2);
+    ellipse(150, 100, spectrum[1]/2, spectrum[1]/2);
+    ellipse(225, 100, spectrum[2]/2, spectrum[2]/2);
+    ellipse(300, 100, spectrum[3]/2, spectrum[3]/2);
+    ellipse(75, 200, spectrum[4]/2, spectrum[4]/2);
+    ellipse(150, 200, spectrum[5]/2, spectrum[5]/2);
+    ellipse(225, 200, spectrum[6]/2, spectrum[6]/2);
+    ellipse(300, 200, spectrum[7]/2, spectrum[7]/2);
+    ellipse(75, 300, spectrum[8]/2, spectrum[8]/2);
+    ellipse(150, 300, spectrum[9]/2, spectrum[9]/2);
+    ellipse(225, 300, spectrum[10]/2, spectrum[10]/2);
+    ellipse(300, 300, spectrum[11]/2, spectrum[11]/2);
+    ellipse(75, 400, spectrum[12]/2, spectrum[12]/2);
+    ellipse(150, 400, spectrum[13]/2, spectrum[13]/2);
+    ellipse(225, 400, spectrum[14]/2, spectrum[14]/2);
+    ellipse(300, 400, spectrum[15]/2, spectrum[15]/2);
+
+}
+
+
+function mousePressed() {
+  clear();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowWidth);
+
+}
