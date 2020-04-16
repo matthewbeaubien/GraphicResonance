@@ -100,6 +100,9 @@ p{
 	font-size: 4em;
 	transition: font-size .3s;
 	z-index: 2;
+	font-family: aktiv-grotesk-thin, sans-serif;
+	font-weight: 200;
+	font-style: normal;
 }
 
 .rightArrow:hover{
@@ -112,7 +115,9 @@ p{
 	left: 25px;
 	font-size: 4em;
 	transition: font-size .3s;
-	z-index: 2;
+	z-index: 2;font-family: aktiv-grotesk-thin, sans-serif;
+	font-weight: 200;
+	font-style: normal;
 
 }
 
