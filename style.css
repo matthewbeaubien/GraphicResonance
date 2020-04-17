@@ -30,10 +30,12 @@ a{
 	font-family: "Times New Roman", Times, serif;
 	text-decoration: none;
 	color:black;
+
 }
 
 a:hover{
 	font-style: italic;
+
 }
 
 body{
@@ -117,7 +119,7 @@ p{
 	position: relative;
 	text-align: center;
 	z-index: 2;
-	top: 35vh;
+	top: 40%;
 	transform: scale(0.45);
 }
 
@@ -137,6 +139,43 @@ p{
 .rightArrow:hover{
 	font-size: 4.5em;
 }
+
+
+
+.rightGradient{
+	position: absolute;
+	margin: 0;
+	height: 100vh;
+	width: 25vw;
+	top: 0px;
+	right: 0px;
+	background-image: linear-gradient(to right,  white, lightgray);
+	z-index: -10;
+	opacity: 0;
+	transition: 0.3s;
+}
+.rightArrow:hover ~ .rightGradient{
+	
+	opacity: 1;
+}
+
+.leftGradient{
+	position: absolute;
+	margin: 0;
+	height: 100vh;
+	width: 25vw;
+	top: 0px;
+	left: 0px;
+	background-image: linear-gradient(to right, lightgray, white);
+	z-index: -10;
+	opacity: 0;
+	transition: 0.3s;
+}
+.leftArrow:hover ~ .leftGradient{
+	
+	opacity: 1;
+}
+
 
 .leftArrow{
 	position: fixed;
@@ -214,12 +253,14 @@ p{
 
 
 #textContainer{
+	margin-top: 25vh;
+	margin-bottom: 25vh;
 	overflow: scroll;
-	position: absolute;
+	position: relative;
 	width: 27vw;
 	height: 48vw;
-	left:50%;
-	top: 50%;
+	left:50vw;
+	top: 25vh;
 	transform: translate(-50%,-50%);
 	border: 1px solid darkred;
 	background-color: white;
@@ -257,7 +298,6 @@ p{
 		height: 80vh; 
 	}	
 
-
 	#compositionHover{
 		width: 45vh;
 		height: 80vh; 
@@ -274,13 +314,13 @@ p{
 	.leftArrow{
 		text-shadow:  0 0 2px white;
 		opacity: 0.25;
-		left: 10px;
+
 	}
 
 	.rightArrow{
 		text-shadow:  0 0 2px white;
 		opacity: 0.25;
-		right: 10px;
+
 
 	}
 

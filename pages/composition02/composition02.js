@@ -3,10 +3,10 @@ let mic, fft;
 
 let lang = navigator.language;
 let speechRec;
-var imgs0 = [];
-var imgs1 = [];
-var imgs2 = [];
-var imgs3 = [];
+var layer1 = [];
+var layer2 = [];
+var layer3 = [];
+var layer4 = [];
 
 var canvas;
 
@@ -15,24 +15,24 @@ var canvas;
 function preload() {
 
     for (var i=0; i<30; i++) {
-    imgs1[i] = loadImage("assets/Shape02/LowFrequencyBubbles"+i+".png"); 
+    layer1[i] = loadImage("assets/layer1/layer1_"+i+".jpg"); 
   }
   for (var i=0; i<30; i++) {
-    imgs2[i] = loadImage("assets/Shape03/HighFrequencyBubbles"+i+".png"); 
+    layer2[i] = loadImage("assets/layer2/layer2_"+i+".jpg"); 
   }
     for (var i=0; i<30; i++) {
-    imgs3[i] = loadImage("assets/Shape04/01_"+i+".png"); 
+    layer3[i] = loadImage("assets/layer3/layer3_"+i+".jpg"); 
+  }
+    for (var i=0; i<30; i++) {
+    layer4[i] = loadImage("assets/layer4/layer4_"+i+".jpg"); 
   }
 }
 
 
 
-
 function setup() {
 
-  var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
- 
-  canvas.parent('compositionContainer');
+
 
   speechRec = new p5.SpeechRec(lang, showResult);
 
@@ -58,39 +58,70 @@ function setup() {
 
 
 function draw() {
+    if (windowWidth>windowHeight){
+     var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
+     } else {
+      var canvas = createCanvas(windowHeight*.45, windowHeight*.8);}
+ 
+  canvas.parent('compositionContainer');
 
     let spectrum = fft.analyze();
     mic.start();
     var nums = [256, 246.5,238,229.5,221,212.5,204,195.5,187,178.5,170,161.5,153,144.5,136,127.5,119,110.5,102,93.5,85,76.5,68,59.5,51,42.5,34,25.5,17,8.5, 0];
-                             
+    background('black');
+    
+
   // fill(spectrum[0], spectrum[8], spectrum[15]);
-  blendMode(NORMAL);
+  blendMode(DIFFERENCE);
 
 if (windowWidth>windowHeight){
 
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[2]<nums[i]) && (spectrum[2]>nums[i+1])) {
-            image(imgs1[i], 0, 0, windowWidth*.27, windowWidth*.48);
+        if ((spectrum[0]<nums[i]) && (spectrum[0]>nums[i+1])) {
+            image(layer1[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[4]<nums[i]) && (spectrum[4]>nums[i+1])) {
-            image(imgs2[i], 0, 0, windowWidth*.27, windowWidth*.48);
+        if ((spectrum[5]<nums[i]) && (spectrum[5]>nums[i+1])) {
+            image(layer2[i], 0, 0, windowWidth*.27, windowWidth*.48);
+        }
+      }
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[10]<nums[i]) && (spectrum[10]>nums[i+1])) {
+            image(layer3[i], 0, 0, windowWidth*.27, windowWidth*.48);
+        }
+      }
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[15]<nums[i]) && (spectrum[15]>nums[i+1])) {
+            image(layer4[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
     }else{
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[2]<nums[i]) && (spectrum[2]>nums[i+1])) {
-            image(imgs1[i], 0, 0, windowHeight*0.5625, windowHeight);
+        if ((spectrum[0]<nums[i]) && (spectrum[0]>nums[i+1])) {
+            image(layer1[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[4]<nums[i]) && (spectrum[4]>nums[i+1])) {
-            image(imgs2[i], 0, 0, windowHeight*0.5625, windowHeight);
+        if ((spectrum[5]<nums[i]) && (spectrum[5]>nums[i+1])) {
+            image(layer2[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
+        }
+      }
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[10]<nums[i]) && (spectrum[10]>nums[i+1])) {
+            image(layer3[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
+        }
+      }
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[15]<nums[i]) && (spectrum[15]>nums[i+1])) {
+            image(layer4[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
 
     }
+
+
+
 
 }
 
@@ -117,6 +148,10 @@ function showResult(){
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth*0.27, windowWidth*0.48);
+ if (windowWidth>windowHeight){
+  resizeCanvas(windowWidth*.27, windowWidth*.48);
+  } else {
+    resizeCanvas(windowHeight*.45, windowHeight*.8);
+  }
 
 }

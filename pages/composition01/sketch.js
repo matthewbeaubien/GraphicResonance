@@ -34,7 +34,7 @@ function setup() {
   var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
   } else {
   var canvas = createCanvas(windowHeight*.45, windowHeight*.8);}
-
+  
   canvas.parent('compositionContainer');
 
   speechRec = new p5.SpeechRec(lang, showResult);

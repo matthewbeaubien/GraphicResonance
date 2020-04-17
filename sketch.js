@@ -4,8 +4,8 @@ var canvas;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  canvas.parent('main');
+  canvas =createCanvas(windowWidth, windowHeight);
+
   
   mic = new p5.AudioIn();
   fft = new p5.FFT(.6, 64);
