@@ -101,8 +101,19 @@ p{
 
 }
 
-{
+li{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	list-style: none;
+	transition: 0.3s;
+	line-height: 1em;
 
+}
+
+li:hover {
+	margin-left: 40px;
+	list-style: "—";
 }
 
 
@@ -146,7 +157,7 @@ p{
 	position: absolute;
 	margin: 0;
 	height: 100vh;
-	width: 25vw;
+	width: 40vw;
 	top: 0px;
 	right: 0px;
 	background-image: linear-gradient(to right,  white, lightgray);
@@ -163,16 +174,17 @@ p{
 	position: absolute;
 	margin: 0;
 	height: 100vh;
-	width: 25vw;
+	width: 40vw;
 	top: 0px;
 	left: 0px;
 	background-image: linear-gradient(to right, lightgray, white);
 	z-index: -10;
 	opacity: 0;
 	transition: 0.3s;
+
 }
+
 .leftArrow:hover ~ .leftGradient{
-	
 	opacity: 1;
 }
 
@@ -204,7 +216,7 @@ p{
 	left:50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
-	border: 1px solid darkred;
+	border: 1px solid black;
 	background-color: white;
 /*	
 	FOR WHEN I FIGURE OUT ANIMATION
@@ -224,7 +236,7 @@ p{
 	background-color: white;
 	z-index: 2;
 	transition: opacity 0.3s;
-	border: 1px solid darkred;
+	border: 1px solid blu;
 	overflow: scroll;
 }
 
@@ -262,7 +274,7 @@ p{
 	left:50vw;
 	top: 25vh;
 	transform: translate(-50%,-50%);
-	border: 1px solid darkred;
+	border: 1px solid black;
 	background-color: white;
 	transition: z-index .3s;
 }

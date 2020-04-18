@@ -73,3 +73,9 @@ function windowResized() {
   }
 
 }
+
+function printCanvas(){
+
+saveCanvas(canvas, 'Resonant Graphic', 'jpg')
+
+}

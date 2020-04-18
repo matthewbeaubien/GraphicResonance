@@ -77,49 +77,63 @@ function draw() {
 if (windowWidth>windowHeight){
 
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[0]<nums[i]) && (spectrum[0]>nums[i+1])) {
+        if ((spectrum[0]<=nums[i]) && (spectrum[0]>=nums[i+1])) {
             image(layer1[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[5]<nums[i]) && (spectrum[5]>nums[i+1])) {
+        if ((spectrum[5]<=nums[i]) && (spectrum[5]>=nums[i+1])) {
             image(layer2[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[10]<nums[i]) && (spectrum[10]>nums[i+1])) {
+        if ((spectrum[10]<=nums[i]) && (spectrum[10]>=nums[i+1])) {
             image(layer3[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[15]<nums[i]) && (spectrum[15]>nums[i+1])) {
+        if ((spectrum[15]<=nums[i]) && (spectrum[15]>=nums[i+1])) {
             image(layer4[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
     }else{
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[0]<nums[i]) && (spectrum[0]>nums[i+1])) {
+        if ((spectrum[0]<=nums[i]) && (spectrum[0]>=nums[i+1])) {
             image(layer1[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[5]<nums[i]) && (spectrum[5]>nums[i+1])) {
+        if ((spectrum[5]<=nums[i]) && (spectrum[5]>=nums[i+1])) {
             image(layer2[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[10]<nums[i]) && (spectrum[10]>nums[i+1])) {
+        if ((spectrum[10]<=nums[i]) && (spectrum[10]>=nums[i+1])) {
             image(layer3[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
       for (i=0;i<nums.length;i++) {
-        if ((spectrum[15]<nums[i]) && (spectrum[15]>nums[i+1])) {
+        if ((spectrum[15]<=nums[i]) && (spectrum[15]>=nums[i+1])) {
             image(layer4[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
 
     }
 
+
+    if(speechRec.resultValue==true) {
+
+        textFont("aktiv-grotesk-thin")
+        textSize(spectrum[4]/2);
+        fill('white');
+        textAlign(LEFT, TOP);
+        textLeading(spectrum[0]/2);
+
+        text(speechRec.resultString, 10, 50, windowWidth*.27, windowWidth*.48);
+
+        console.log(speechRec.resultConfidence);
+
+      }
 
 
 
@@ -136,13 +150,13 @@ function showResult(){
     if(speechRec.resultValue==true) {
 
 
-      textSize(spectrum[0]/2);
-      fill('white');
-      textAlign(LEFT, CENTER);
+      // textSize(spectrum[0]/2);
+      // fill('white');
+      // textAlign(LEFT, CENTER);
 
-      text(speechRec.resultString, 10, random((windowWidth*.48)/2), windowWidth*.27, windowWidth*.48);
+      // text(speechRec.resultString, 10, random((windowWidth*.48)/2), windowWidth*.27, windowWidth*.48);
 
-      console.log(speechRec.resultConfidence);
+      // console.log(speechRec.resultConfidence);
 
     }
 }
@@ -153,5 +167,10 @@ function windowResized() {
   } else {
     resizeCanvas(windowHeight*.45, windowHeight*.8);
   }
+}
+
+function printCanvas(){
+
+saveCanvas(canvas, 'Resonant Graphic', 'jpg')
 
 }
