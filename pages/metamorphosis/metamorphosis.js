@@ -40,7 +40,7 @@ function preload() {
 
 function setup() {
   
-  if (windowWidth>windowHeight){
+  if (windowWidth>900){
   var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
   } else {
   var canvas = createCanvas(windowHeight*.45, windowHeight*.8);}
@@ -80,7 +80,7 @@ function draw() {
 
 
 
-if (windowWidth>windowHeight){
+if (windowWidth>900){
 
       blendMode(NORMAL);
 
@@ -130,9 +130,9 @@ if (windowWidth>windowHeight){
         fill(spectrum[4]);
         textLeading(typeSize);
         text(speechRec.resultString, 25, 50, windowWidth*.27, windowWidth*.4);
-
-
       }
+      blendMode(NORMAL);
+
       for (i=0;i<nums.length;i++) {
         if ((spectrum[10]<=nums[i]) && (spectrum[10]>=nums[i+1])) {
             image(imgs3[i], 0, 0, windowWidth*.27, windowWidth*.48);
@@ -143,40 +143,65 @@ if (windowWidth>windowHeight){
             image(imgs4[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
-      // blendMode(MULTIPLY);
-      // for (i=0;i<nums.length;i++) {
-      //   if ((spectrum[14]<=nums[i]) && (spectrum[14]>=nums[i+1])) {
-      //       image(imgs0[i], 0, 0, windowWidth*.27, windowWidth*.48);
-      //   }
-      // }
-      // for (i=0;i<nums.length;i++) {
-      //   if ((spectrum[7]<=nums[i]) && (spectrum[7]>=nums[i+1])) {
-      //       image(imgs5[i], 0, 0, windowWidth*.27, windowWidth*.48);
-      //   }
-      // }
-      blendMode(NORMAL);
+
+      
     
     }else{
  
       for (i=0;i<nums.length;i++) {
         if ((spectrum[1]<=nums[i]) && (spectrum[1]>nums[i+1])) {
-            image(imgs1[i], 0, 0, windowWidth*.45, windowWidth*.8);
+            image(imgs1[i], 0, 0, windowHeight*.45, windowHeight*.8);
         }
       }
       
       for (i=0;i<nums.length;i++) {
         if ((spectrum[5]<=nums[i]) && (spectrum[5]>=nums[i+1])) {
-            image(imgs2[i], 0, 0, windowWidth*.45, windowWidth*.8);
+            image(imgs2[i], 0, 0, windowHeight*.45, windowHeight*.8);
         }
       }
+      if(speechRec.resultValue==true) {
+
+
+      // VOICE COMMANDS
+      if(speechRec.resultString=="Center align"){
+        textAlign(CENTER);}
+      if(speechRec.resultString=="left-aligned"||speechRec.resultString=="left aligned"||speechRec.resultString=="left align"){
+        textAlign(LEFT);}
+      if(speechRec.resultString=="right aligned"||speechRec.resultString=="right align"||speechRec.resultString=="right-aligned"){
+        textAlign(RIGHT);}
+      if(speechRec.resultString=="bottom aligned"||speechRec.resultString=="align bottom"||speechRec.resultString=="bottom align"||speechRec.resultString=="bottom-aligned"){
+        textAlign(LEFT, BOTTOM);}
+      if(speechRec.resultString=="top aligned"||speechRec.resultString=="top align"||speechRec.resultString=="top-aligned"){
+        textAlign(LEFT, TOP);}
+      if(speechRec.resultString=="light"){
+        textFont("aktiv-grotesk-thin");}
+      if(speechRec.resultString=="extended"){
+        textFont("aktiv-grotesk-extended");}
+      if(speechRec.resultString=="condensed"){
+        textFont("aktiv-grotesk-condensed");}
+      if(speechRec.resultString=="bold"){
+        textStyle("bold");}
+      if(speechRec.resultString=="italic"){
+        textStyle("italic");}
+      if(speechRec.resultString=="regular"){
+        textStyle("normal");}
+
+
+        blendMode(DIFFERENCE);
+        textSize(typeSize);
+        fill(spectrum[4]);
+        textLeading(typeSize);
+        text(speechRec.resultString, 25, 50, windowWidth*.27, windowWidth*.4);
+      }
+      blendMode(NORMAL);
       for (i=0;i<nums.length;i++) {
         if ((spectrum[10]<=nums[i]) && (spectrum[10]>=nums[i+1])) {
-            image(imgs3[i], 0, 0, windowWidth*.45, windowWidth*.8);
+            image(imgs3[i], 0, 0, windowHeight*.45, windowHeight*.8);
         }
       }
       for (i=0;i<nums.length;i++) {
         if ((spectrum[15]<=nums[i]) && (spectrum[15]>=nums[i+1])) {
-            image(imgs4[i], 0, 0, windowWidth*.45, windowWidth*.8);
+            image(imgs4[i], 0, 0, windowHeight*.45, windowHeight*.8);
         }
       }
       // blendMode(MULTIPLY);
