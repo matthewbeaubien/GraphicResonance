@@ -67,9 +67,7 @@ function draw() {
 
 
 
-function mousePressed() {
-  clear();
-}
+
 
 function windowResized() {
  if (windowWidth>windowHeight){
