@@ -78,7 +78,7 @@ function draw() {
     var nums = [256, 246.5,238,229.5,221,212.5,204,195.5,187,178.5,170,161.5,153,144.5,136,127.5,119,110.5,102,93.5,85,76.5,68,59.5,51,42.5,34,25.5,17,8.5, 0];
  
 
-
+var typeSize = map(spectrum[4], 0, 255, 50,100);
  
 
 
@@ -98,7 +98,7 @@ if (windowWidth>1300){
             image(imgs2[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
-          var typeSize = map(spectrum[4], 0, 255, 50,100);
+          
 
     if(speechRec.resultValue==true) {
       
@@ -252,7 +252,7 @@ if (windowWidth>1300){
         textSize(typeSize);
         fill(spectrum[4]);
         textLeading(typeSize);
-        text(speechRec.resultString, 25, 50, windowWidth*.27, windowWidth*.4);
+        text(speechRec.resultString, 25, 50, windowWidth, windowHeight);
       }
       blendMode(NORMAL);
       for (i=0;i<nums.length;i++) {

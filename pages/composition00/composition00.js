@@ -5,11 +5,13 @@ var canvas;
 
 function setup() {
 
-  if (windowWidth>windowHeight){
+   if (windowWidth>1300){
   var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
-  } else {
+} else if(windowWidth<1300&&windowWidth>730){
   var canvas = createCanvas(windowHeight*.45, windowHeight*.8);
-  }
+} else if (windowWidth<730){
+  var canvas = createCanvas(windowWidth, windowHeight);
+}
 
   canvas.parent('compositionContainer');
 
@@ -23,11 +25,15 @@ function setup() {
   stroke('white');
   strokeWeight(1);
       fill('black');
-    if(windowWidth<windowHeight){
-      rect( -1, -1, windowHeight*.45 + 1, windowHeight*.8 + 1);
+    if(windowWidth>1300){
+      rect( -1, -1, windowWidth*.27 + 1, windowWidth*.48 + 1);
       
-    } else {
-      rect(-1, -1, windowWidth*0.27 + 1, windowWidth*0.48 + 1);
+    }
+    if (windowWidth < 1300 && windowWidth < 730){
+      rect(-1, -1, windowHeight*0.45 + 1, windowHeight*0.8 + 1);
+    }
+    if (windowWidth < 730){
+      rect(-1, -1, windowWidth + 1, windowHeight + 1);
     }
 
 
@@ -70,12 +76,15 @@ function draw() {
 
 
 function windowResized() {
- if (windowWidth>windowHeight){
+ if (windowWidth>1300){
   resizeCanvas(windowWidth*.27, windowWidth*.48);
-  } else {
+  }
+if (windowWidth < 1300 && windowWidth > 730){
     resizeCanvas(windowHeight*.45, windowHeight*.8);
   }
-
+if (windowWidth > 730){
+    resizeCanvas(windowWidth, windowHeight);
+  }
 }
 
 function printCanvas(){
