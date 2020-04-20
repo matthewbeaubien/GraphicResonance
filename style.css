@@ -18,6 +18,7 @@ display: none;
 	z-index: 1;
 }
 
+
 @keyframes slideRight{
 	from {left:150vw;}
 	to {left:50vw;}
@@ -62,7 +63,7 @@ h2{
 	margin: none;
 	margin-left: 20px;
 	font-weight: normal;
-	font-style: italic;
+
 	font-size: 1.5em;
 	line-height: 1em;
   	/*border-bottom: 2px solid black;*/
@@ -80,6 +81,7 @@ h3{
 	font-size: 1em;
 	line-height: 1em;
 	margin-bottom: 5px;
+
 }
 
 
@@ -143,25 +145,27 @@ li:hover {
 
 .rightArrow{
 	position: fixed;
-	top: 40vh;
+	top: 45vh;
 	right: 25px;
 	font-size: 4em;
-	transition: font-size .3s;
+	transition: .3s;
 	z-index: 2;
 	font-family: aktiv-grotesk-thin, sans-serif;
 	font-weight: 200;
 	font-style: normal;
 	z-index: 10;
+	transform: translate(0, -50%);
+
 }
 
 .rightArrow:hover{
-	font-size: 4.5em;
+	transform: translate(0, -50%) scale(1.2);
 }
 
 
 
 .rightGradient{
-	position: absolute;
+	position: fixed;
 	margin: 0;
 	height: 100vh;
 	width: 40vw;
@@ -172,13 +176,52 @@ li:hover {
 	opacity: 0;
 	transition: 0.3s;
 }
-.rightArrow:hover ~ .rightGradient{
-	
-	opacity: 1;
+
+
+
+.navigationHoverRight{
+
+  height: 20px;
+  
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  text-align: right;
+  font-size: 1em;
+  /* Position the navigation tip */
+  position: fixed;
+  transform: translate(0, -50%);
+  top:46vh;
+  right:85px;
+  z-index: 1;
 }
 
+.rightArrow:hover ~ .rightGradient{
+	opacity: 1;
+
+}
+
+
+.leftArrow{
+	position: fixed;
+	top: 45vh;
+	left: 25px;
+	font-size: 4em;
+	transform: translate(0, -50%);
+	transition: .3s;
+	z-index: 2;font-family: aktiv-grotesk-thin, sans-serif;
+	font-weight: 200;
+	font-style: normal;
+	z-index: 10;
+
+}
+
+.leftArrow:hover{
+	transform: translate(0, -50%) scale(1.2);
+}
+
+
 .leftGradient{
-	position: absolute;
+	position: fixed;
 	margin: 0;
 	height: 100vh;
 	width: 40vw;
@@ -193,27 +236,36 @@ li:hover {
 
 .leftArrow:hover ~ .leftGradient{
 	opacity: 1;
-}
-
-
-.leftArrow{
-	position: fixed;
-	top: 40vh;
-	left: 25px;
-	font-size: 4em;
-	transition: font-size .3s;
-	z-index: 2;font-family: aktiv-grotesk-thin, sans-serif;
-	font-weight: 200;
-	font-style: normal;
-	z-index: 10;
 
 }
+.navigationHoverLeft{
 
-.leftArrow:hover{
-	font-size: 4.5em;
+  height: 20px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  text-align: left;
+  font-size: 1em;
+  /* Position the tooltip */
+  position: fixed;
+  transform: translate(0, -50%);
+  top:46vh;
+  left:85px;
+  z-index: 1;
 }
 
+#scrollIcon{
 
+	background-image: url("assets/scroll.gif");
+	background-repeat: no-repeat;
+	background-size: 50%;
+  	background-position: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	left: 50vw;
+	top: 97vh;
+}
 
 
 #compositionContainer{
@@ -258,6 +310,7 @@ li:hover {
 	right: 40px;
 	transform: scale(0.3);
 	margin: none;
+	z-index: 2
 }
 
 #reload:hover{
@@ -272,12 +325,15 @@ li:hover {
 
 #printIcon{
 	background-image: url("assets/printStill.png");
-	transform: scale(.13);
-	height: 500px;
-	width: 500px;
+	background-repeat: no-repeat;
+	background-size: 80%;
+  	background-position: center;
 	position: fixed;
-	left: 28%;
-	top: -30%;
+	width: 75px;
+	height: 75px;
+	right: 0px;
+	top: 5px;
+
 }
 
 #printIcon:hover{
@@ -287,8 +343,8 @@ li:hover {
 }
 
 #printIcon:active {
-	transform: scale(0.10);
 	background-image: url("assets/printStill.png");
+
 }
 
 
