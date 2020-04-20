@@ -45,7 +45,7 @@ function setup() {
   speechRec.start(continuous, interim);
 
   mic = new p5.AudioIn();
-  fft = new p5.FFT(.6, 16);
+  fft = new p5.FFT(.7, 16);
   fft.setInput(mic);                                
   pixelDensity(2);
   frameRate(30);
@@ -58,10 +58,13 @@ function setup() {
 
 
 function draw() {
-    if (windowWidth>windowHeight){
-     var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
-     } else {
-      var canvas = createCanvas(windowHeight*.45, windowHeight*.8);}
+   if (windowWidth>1300){
+  var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
+} else if(windowWidth<1300&&windowWidth>730){
+  var canvas = createCanvas(windowHeight*.45, windowHeight*.8);
+} else if (windowWidth<730){
+  var canvas = createCanvas(windowWidth, windowHeight);
+}
  
   canvas.parent('compositionContainer');
 
@@ -112,8 +115,7 @@ function draw() {
         text(speechRec.resultString, 25, 50, windowWidth*.27, windowWidth*.4);
       }
 
-if (windowWidth>windowHeight){
-
+  if (windowWidth>1300){
       for (i=0;i<nums.length;i++) {
         if ((spectrum[0]<=nums[i]) && (spectrum[0]>=nums[i+1])) {
             image(layer1[i], 0, 0, windowWidth*.27, windowWidth*.48);
@@ -134,7 +136,9 @@ if (windowWidth>windowHeight){
             image(layer4[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
-    }else{
+    }
+
+  if (windowWidth<1300 && windowWidth > 730){
       for (i=0;i<nums.length;i++) {
         if ((spectrum[0]<=nums[i]) && (spectrum[0]>=nums[i+1])) {
             image(layer1[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
@@ -155,8 +159,32 @@ if (windowWidth>windowHeight){
             image(layer4[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
+    }
+
+  if (windowWidth<730){
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[0]<=nums[i]) && (spectrum[0]>=nums[i+1])) {
+            image(layer1[i], 0, 0, windowWidth, windowHeight);
+        }
+      }
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[5]<=nums[i]) && (spectrum[5]>=nums[i+1])) {
+            image(layer2[i], 0, 0, windowWidth, windowHeight);
+        }
+      }
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[10]<=nums[i]) && (spectrum[10]>=nums[i+1])) {
+            image(layer3[i], 0, 0, windowWidth, windowHeight);
+        }
+      }
+      for (i=0;i<nums.length;i++) {
+        if ((spectrum[15]<=nums[i]) && (spectrum[15]>=nums[i+1])) {
+            image(layer4[i], 0, 0, windowWidth, windowHeight);
+        }
+      }
 
     }
+
 
 }
 
@@ -164,10 +192,14 @@ function showResult(){}
 
 
 function windowResized() {
- if (windowWidth>windowHeight){
+ if (windowWidth>1300){
   resizeCanvas(windowWidth*.27, windowWidth*.48);
-  } else {
+  }
+if (windowWidth<1300 && windowWidth > 730){
     resizeCanvas(windowHeight*.45, windowHeight*.8);
+  }
+if (windowWidth>730){
+    resizeCanvas(windowWidth, windowHeight);
   }
 }
 

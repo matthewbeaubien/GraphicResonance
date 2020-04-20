@@ -6,12 +6,21 @@ display: none;
 
 #coverImage{
 	width: 100%;
-	height:100%;
-	position: absolute;
+	height: 100%;
+	position: fixed;
 	left:0px;
 	top:0px;
+	background-image: url("assets/gallery/coverImages.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image-size: cover; 
+	display: none;
+	z-index: -1;
+	opacity: 5%;
 
 }
+
+
 
 
 .p5Canvas{
@@ -42,8 +51,11 @@ a{
 	text-decoration: none;
 	font-style: italic;
 	color:black;
-	font-size: 110%;
+	font-size: 115%;
+}
 
+#pBold{
+	font-weight: 700;
 }
 
 a:hover{
@@ -202,15 +214,13 @@ li:hover {
 .navigationHoverRight{
 
   height: 20px;
-  
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
   text-align: right;
   font-size: 1em;
-  /* Position the navigation tip */
   position: fixed;
   transform: translate(0, -50%);
-  top:46vh;
+  top:46.5vh;
   right:85px;
   z-index: 1;
 }
@@ -268,7 +278,7 @@ li:hover {
   /* Position the tooltip */
   position: fixed;
   transform: translate(0, -50%);
-  top:46vh;
+  top:46.5vh;
   left:85px;
   z-index: 1;
 }
@@ -320,8 +330,12 @@ li:hover {
 }
 
 #compositionHover:hover{
-	opacity:0.85;
+	opacity:0.95;
 	
+}
+
+#compositionHover:hover #coverImage{
+	display: block;
 }
 
 #reload{
@@ -387,6 +401,26 @@ li:hover {
 	z-index: 2;
 }
 
+#homeContainer{
+	margin-top: 25vh;
+	margin-bottom: 25vh;
+	overflow: scroll;
+	position: relative;
+	width: 27vw;
+	height: 48vw;
+	left:50vw;
+	top: 25vh;
+	transform: translate(-50%,-50%);
+	border: 1px solid black;
+	background-color: white;
+	transition: z-index .3s;
+	position: fixed;
+}
+
+#homeContainer:hover {
+	z-index: 2;
+}
+
 .title{
 	position: fixed;
 	font-size: 14vw;
@@ -399,14 +433,96 @@ li:hover {
 	z-index: 2;
   }
 
+  .colophon{
+  	height:25vh;
+  	width: 100vw;
+  	position: absolute;
+  	top:115vh;
+  	left: 0px;
+  	z-index: 20;
+  	border-top: 1px solid black;
+  	background-color: white;
+  	padding-left: 8%;
+
+  }
+  #colophonTop{
+
+  	position: relative;
+  	width:80%;
+  	height: 20%;
+  	top: 2.5vh;
+  	left: 0px;
+
+  }
+    #colophonBottom{
+
+  	position: relative;
+  	columns: 3;
+  	width:75%;
+  	height: 60%;
+  	top: 2.5vh;
+  	left: 0px;
+
+  }
+  #colophonColumnNarrow{
+  	display: none;
+  	position: relative;
+  	width:80%;
+  	height: 80%;
+  	top: 2.5vh;
+  	left: 0px;
+  	overflow: scroll;
+  }
 
 
+@media screen and (min-width: 0px) and (max-width: 1300px) {
+	#colophonBottom{
+		display: none;
+	}
 
-@media screen and (min-width: 0px) and (max-width: 900px) {
+	#colophonTop{
+		display: none;
+	}
 
+	#colophonColumnNarrow{
+		display: block;
+	}
+}
+
+@media screen and (min-width: 730px) and (max-width: 1300px) {
+	
 	#compositionContainer{
 		width: 45vh;
 		height:80vh; 
+	}
+
+	#textContainer{
+		width: 45vw;
+		height: 80vh; 
+	}	
+
+	#compositionHover{
+			width: 45vh;
+			height:80vh; 
+	}
+
+	#compositionHover:hover{
+		opacity: 0;
+	}	
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 730px) {
+
+	#homeContainer{
+		width: 45vh;
+		height:80vh; 
+	}
+
+
+	#compositionContainer{
+		width: 100vw;
+		height:100vh; 
 	}
 
 	#textContainer{
@@ -415,26 +531,31 @@ li:hover {
 	}	
 
 	#compositionHover{
-		display: none; 
-	}	
-
-	#compositionHover:active{
-	opacity:0.75;
+		width: 45vh;
+		height: 80vh; 
 	}
+
+	#compositionHover:hover{
+		opacity: 95;
+	}	
 
 	.title{
 		bottom: 10vh;
 	}
 
 	.leftArrow{
-		text-shadow:  0 0 2px white;
-		opacity: 0.25;
+		position: absolute;
+		text-shadow:  0 0 4px white;
+		opacity: 0.5;
+		left:10px;
 
 	}
 
 	.rightArrow{
-		text-shadow:  0 0 2px white;
-		opacity: 0.25;
+		position: absolute;
+		text-shadow:  0 0 4px white;
+		opacity: 0.5;
+		right:10px;
 
 
 	}

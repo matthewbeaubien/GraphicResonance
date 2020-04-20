@@ -30,10 +30,12 @@ function preload() {
 
 function setup() {
   
-if (windowWidth>900){
+if (windowWidth>1300){
   var canvas = createCanvas(windowWidth*.27, windowWidth*.48);
-} else {
+} else if(windowWidth<1300&&windowWidth>730){
   var canvas = createCanvas(windowHeight*.45, windowHeight*.8);
+} else if (windowWidth<730){
+  var canvas = createCanvas(windowWidth, windowHeight);
 }
 
 canvas.parent('compositionContainer');
@@ -62,8 +64,8 @@ function draw() {
 
     let spectrum = fft.analyze();
     mic.start();
-    
-if (windowWidth>900){
+
+if (windowWidth>1300){
   blendMode(MULTIPLY);
     for (i=0;i<nums.length;i++) {
       if ((spectrum[0]<=nums[i]) && (spectrum[0]>nums[i+1])) {
@@ -88,29 +90,56 @@ if (windowWidth>900){
         image(layer4[i], 0, 0, windowWidth*.27, windowWidth*.48);
         }
       }
-}if (windowWidth<windowHeight){
-   blendMode(MULTIPLY);
+} 
+    
+if (windowWidth<1300&&windowWidth>730){
+  blendMode(MULTIPLY);
     for (i=0;i<nums.length;i++) {
       if ((spectrum[0]<=nums[i]) && (spectrum[0]>nums[i+1])) {
-          image(layer1[i], 0, 0, windowHeight*.45, windowHeight*.8);
+          image(layer1[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
   blendMode(SCREEN);
     for (i=0;i<nums.length;i++) {
       if ((spectrum[5]<=nums[i]) && (spectrum[5]>=nums[i+1])) {
-          image(layer2[i], 0, 0, windowHeight*.45, windowHeight*.8);
+          image(layer2[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }
   blendMode(MULTIPLY);
     for (i=0;i<nums.length;i++) {
       if ((spectrum[10]<=nums[i]) && (spectrum[10]>=nums[i+1])) {
-        image(layer3[i], 0, 0, windowHeight*.45, windowHeight*.8);
+        image(layer3[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
         }
       }    
   blendMode(SCREEN);
     for (i=0;i<nums.length;i++) {
       if ((spectrum[15]<=nums[i]) && (spectrum[15]>=nums[i+1])) {
-        image(layer4[i], 0, 0, windowHeight*.45, windowHeight*.8);
+        image(layer4[i], 0, 0, windowHeight*0.45, windowHeight*0.8);
+        }
+      }
+}if (windowWidth<730){
+   blendMode(MULTIPLY);
+    for (i=0;i<nums.length;i++) {
+      if ((spectrum[0]<=nums[i]) && (spectrum[0]>nums[i+1])) {
+          image(layer1[i], 0, 0, windowWidth, windowHeight);
+        }
+      }
+  blendMode(SCREEN);
+    for (i=0;i<nums.length;i++) {
+      if ((spectrum[5]<=nums[i]) && (spectrum[5]>=nums[i+1])) {
+          image(layer2[i], 0, 0, windowWidth, windowHeight);
+        }
+      }
+  blendMode(MULTIPLY);
+    for (i=0;i<nums.length;i++) {
+      if ((spectrum[10]<=nums[i]) && (spectrum[10]>=nums[i+1])) {
+        image(layer3[i], 0, 0, windowWidth, windowHeight);
+        }
+      }    
+  blendMode(SCREEN);
+    for (i=0;i<nums.length;i++) {
+      if ((spectrum[15]<=nums[i]) && (spectrum[15]>=nums[i+1])) {
+        image(layer4[i], 0, 0, windowWidth, windowHeight);
       }
     }
   }
@@ -158,13 +187,15 @@ function showResult(){}
 
 //resize canvas with window
 function windowResized() {
- if (windowWidth>900){
+ if (windowWidth>1300){
   resizeCanvas(windowWidth*.27, windowWidth*.48);
   }
-if (windowWidth<windowHeight){
+if (windowWidth>730 && windowWidth<1300){
   resizeCanvas(windowHeight*.45, windowHeight*.8);
   }
-
+if (windowWidth<730){
+  resizeCanvas(windowWidth, windowHeight);
+  }
 }
 
 //print canvas
