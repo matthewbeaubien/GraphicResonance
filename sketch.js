@@ -1,34 +1,35 @@
-let mic, fft; 
-
-var canvas;
 
 
-function setup() {
-  canvas =createCanvas(windowWidth, windowHeight);
 
-  
-  mic = new p5.AudioIn();
-  fft = new p5.FFT(.6, 64);
-  fft.setInput(mic);           
-
-}
+var imageArray = new Array();
 
 
-function draw() {
+for (var i=0; i<4; i++) {
+    imageArray[i] = new Image(); }
 
-var spectrum = fft.analyze();
-console.log(spectrum);
-stroke(255);
+for (var i=0; i<4; i++) {
+    imageArray[i].src = "assets/gallery/image_"+i+".jpg"; }
 
-for (var i = 0; i < spectrum.length; i++){
-	var amp = spectrum[i];
-	var y = map(amp, 0, 255	, height, 0);
-	line(i, height, i, y);
-}
+    
+ 
 
-}
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+// function getRandomImage() {
+//   var index = Math.floor(Math.random() * 4);
+//   return imageArray[index];
+// }
 
-}
+// $("#textContainer").hover(
+//   function() {
+//     var coverImage = getRandomImage();
+//     $("#coverImage").attr("src", coverImage);
+//     console.log(coverImage);
+//   });
+
+// $("#textContainer").hover(
+// 	function() {
+// $('html').css({'#coverImage{background-image': 'url(assets/gallery/image_' + imageArray[Math.floor(Math.random() * 3)] + ')}'});
+//   });
+// $("#textContainer").hover(
+// 	function() 
+// 	{document.getElementById("coverImage").style.backgroundImage== getRandomImage();	});
