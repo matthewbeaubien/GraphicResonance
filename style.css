@@ -330,7 +330,6 @@ li:hover {
 	background-color: white;
 	z-index: 2;
 	transition: opacity 0.3s;
-	border: 1px solid black;
 	overflow: scroll;
 }
 
